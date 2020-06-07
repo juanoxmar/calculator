@@ -24,12 +24,17 @@ function operate(a , b , c) {
 //input selection and modification
 const elem = document.getElementById('inputs');
 
-function inputs(a) {
-    elem.value = elem.value + a;
-}
+const buttonId = Array.from(document.getElementsByClassName('numBut'));
+
+const eventButton = buttonId.map(x => x.addEventListener('click', function(e){
+    elem.innerHTML = elem.innerHTML + x.id
+}));
+
+//document.getElementById('9').addEventListener('click', );
+//const clickFunction = document.getElementById('9').addEventListener('click', function(e){
+//    elem.innerHTML = elem.innerHTML + document.getElementById('9').id
+//});
 
 //button push modifies input
-
-const buttonElem = Array.from(document.getElementsByClassName('but'));
-
-//keypush modiefies input
+//const buttonId = Array.from(document.getElementsByClassName('but'));
+//buttonId[9].addEventListener('click', inputs(buttonId[9].id));

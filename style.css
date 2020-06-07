@@ -44,6 +44,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
+    vertical-align: bottom;
 }
 
 .scr {
@@ -54,8 +55,7 @@ body {
     align-items: flex-end;
 }
 
-input {
-    height: 100%;
+#inputs {
     width: 100%;
     border: none;
     color: white;
@@ -63,22 +63,7 @@ input {
     font-size: 8vh;
     font-family: 'Orbitron', sans-serif;
     text-align: end;
-}
-
-input:focus {
-    outline:0;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+    vertical-align: bottom;
 }
 
 .row {
@@ -116,6 +101,10 @@ input[type=number] {
     border: none;
     border: 0.15vh solid rgb(95, 95, 95);
     background-color: rgb(150, 150, 150);
+}
+
+.numBut {
+    
 }
 
 .but0 {

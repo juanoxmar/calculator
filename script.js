@@ -105,5 +105,6 @@ divButton.addEventListener('click', function(e){
 entButton.addEventListener('click', function(e){
     b = +elem.innerHTML;
     elem.innerHTML = operate(a , b , c);
+    a = 0;
     c = '';
 });

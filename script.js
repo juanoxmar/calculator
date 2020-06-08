@@ -8,7 +8,7 @@ const div = (a , b) => {
         return 'CANT DIVIDE BY ZERO';
     else
         return Math.round(a / b) * 1000000000 / 1000000000;
-}
+};
 
 function operate(a , b , c) {
     switch (c) {
@@ -25,7 +25,7 @@ function operate(a , b , c) {
             return div(a , b);
             break;
     }
-}
+};
 
 //input selection and modification
 const elem = document.getElementById('inputs');
@@ -47,7 +47,7 @@ pButton.addEventListener('click', function(e){
 let a = 0;
 let b = 0;
 let c = '';
-let d = 1
+let d = 1;
 
 //Clear Button
 const clearButton = document.getElementById('clear');

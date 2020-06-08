@@ -1,8 +1,14 @@
 //calculator operations
-const add = (a , b) => a + b;
-const sub = (a , b) => a - b;
-const mul = (a , b) => a * b;
-const div = (a , b) => a / b;
+const add = (a , b) => Math.round(a + b) * 1000000000 / 1000000000;
+const sub = (a , b) => Math.round(a - b) * 1000000000 / 1000000000;
+const mul = (a , b) => Math.round(a * b) * 1000000000 / 1000000000;
+
+const div = (a , b) => {
+    if (b == 0)
+        return 'CANT DIVIDE BY ZERO';
+    else
+        return Math.round(a / b) * 1000000000 / 1000000000;
+}
 
 function operate(a , b , c) {
     switch (c) {
@@ -26,9 +32,17 @@ const elem = document.getElementById('inputs');
 
 //numbers go in display
 const buttonId = Array.from(document.getElementsByClassName('numBut'));
+
 const eventButton = buttonId.map(x => x.addEventListener('click', function(e){
     elem.innerHTML = elem.innerHTML + x.id
 }));
+
+const pButton = document.getElementById('.');
+
+pButton.addEventListener('click', function(e){
+    if (!elem.innerHTML.includes('.'))
+        elem.innerHTML = elem.innerHTML + pButton.id
+});
 
 let a = 0;
 let b = 0;
@@ -53,35 +67,42 @@ const divButton = document.getElementById('divide');
 const entButton = document.getElementById('enter');
 
 addButton.addEventListener('click', function(e){
-    a = +elem.innerHTML + a;
+    if (c !== '')
+        a = operate(a , +elem.innerHTML , c);
+    else
+        a = +elem.innerHTML;
     c = 'add';
     elem.innerHTML = '';
 });
 
 subButton.addEventListener('click', function(e){
-    a = +elem.innerHTML - a;
+    if (c !== '')
+        a = operate(a , +elem.innerHTML , c);
+    else
+        a = +elem.innerHTML;
     c = 'sub';
     elem.innerHTML = '';
 });
 
 mulButton.addEventListener('click', function(e){
-    a = +elem.innerHTML * d;
-    d = a;
+    if (c !== '')
+        a = operate(a , +elem.innerHTML , c);
+    else
+        a = +elem.innerHTML;
     c = 'mul';
     elem.innerHTML = '';
 });
 
 divButton.addEventListener('click', function(e){
-    if ( a == 0)
-        a = +elem.innerHTML;
+    if (c !== '')
+        a = operate(a , +elem.innerHTML , c);
     else
-        a = d / +elem.innerHTML;
-    d = a;
+        a = +elem.innerHTML;
     c = 'div';
     elem.innerHTML = '';
 });
 
 entButton.addEventListener('click', function(e){
     b = +elem.innerHTML;
-    elem.innerHTML = Math.round(operate(a , b , c) * 1000000000) / 1000000000;
+    elem.innerHTML = operate(a , b , c);
 });

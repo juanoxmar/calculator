@@ -1,13 +1,13 @@
 //calculator operations
-const add = (a , b) => Math.round(a + b) * 1000000000 / 1000000000;
-const sub = (a , b) => Math.round(a - b) * 1000000000 / 1000000000;
-const mul = (a , b) => Math.round(a * b) * 1000000000 / 1000000000;
+const add = (a , b) => Math.round((a + b) * 1000000000) / 1000000000;
+const sub = (a , b) => Math.round((a - b) * 1000000000) / 1000000000;
+const mul = (a , b) => Math.round((a * b) * 1000000000) / 1000000000;
 
 const div = (a , b) => {
     if (b == 0)
         return 'CANT DIVIDE BY ZERO';
     else
-        return Math.round(a / b) * 1000000000 / 1000000000;
+        return Math.round((a / b) * 1000000000) / 1000000000;
 };
 
 function operate(a , b , c) {
@@ -105,6 +105,5 @@ divButton.addEventListener('click', function(e){
 entButton.addEventListener('click', function(e){
     b = +elem.innerHTML;
     elem.innerHTML = operate(a , b , c);
-    a = 0;
     c = '';
 });
